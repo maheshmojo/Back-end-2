@@ -6,6 +6,10 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
+                script {
+                  def pom = readMavenPom file: 'pom.xml'
+                  version = pom.version
+              }
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
