@@ -4,11 +4,14 @@ pipeline {
         maven 'M3' 
         jdk 'Java-11' 
     }
-    stages {
-        stage ('Build') {
+    stage ('Build') {
             steps {
-                echo 'This is a minimal pipeline.'
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+            }
+            post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml' 
+                }
             }
         }
-    }
 }
