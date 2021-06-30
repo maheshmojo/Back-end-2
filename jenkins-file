@@ -4,7 +4,8 @@ pipeline {
         maven 'M3' 
         jdk 'Java-11' 
     }
-    stage ('Build') {
+    stages {
+        stage ('Build') {
             steps {
                 sh 'mvn -Dmaven.test.failure.ignore=true install' 
             }
@@ -14,4 +15,5 @@ pipeline {
                 }
             }
         }
+    }
 }
