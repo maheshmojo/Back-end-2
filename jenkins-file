@@ -9,7 +9,7 @@ pipeline {
             steps {
                 sh '''
                     echo "PATH = ${PATH}"
-                    echo "MAVEN-HOME = ${MAVEN-HOME}"
+                    echo "M3 = ${M3}"
                 ''' 
             }
         }
